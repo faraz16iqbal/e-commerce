@@ -34,6 +34,7 @@ const CartScreen = ({ match, location, history }) => {
 
   const removeFromCartHandler = (id) => {
     dispatch(removeFromCart(id));
+    history.push(`/cart`);
   };
   const checkoutHandler = () => {
     history.push(`/login?redirect=shipping`);
@@ -116,9 +117,9 @@ const CartScreen = ({ match, location, history }) => {
             <ListGroup.Item>
               {cartItems.map((x) => (
                 <ListGroup.Item key={x.product} variant="primary">
-                  <p style={{ display: "inline" }}>
+                  <p>
                     {x.name.split(" ")[0] + " " + x.name.split(" ")[1]} ${" "}
-                    <strong>{x.price}</strong>
+                    <strong>{x.qty * x.price}</strong>
                   </p>
                 </ListGroup.Item>
               ))}
