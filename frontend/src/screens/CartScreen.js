@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
-import { addToCart } from "../actions/cartActions";
+import { addToCart, removeFromCart } from "../actions/cartActions";
 import {
   Row,
   Col,
@@ -33,7 +33,7 @@ const CartScreen = ({ match, location, history }) => {
   }, [dispatch, productId, qty]);
 
   const removeFromCartHandler = (id) => {
-    console.log("Remove");
+    dispatch(removeFromCart(id));
   };
   const checkoutHandler = () => {
     history.push(`/login?redirect=shipping`);
@@ -112,6 +112,16 @@ const CartScreen = ({ match, location, history }) => {
               {cartItems
                 .reduce((acc, item) => acc + item.qty * item.price, 0)
                 .toFixed(2)}
+            </ListGroup.Item>
+            <ListGroup.Item>
+              {cartItems.map((x) => (
+                <ListGroup.Item key={x.product} variant="primary">
+                  <p style={{ display: "inline" }}>
+                    {x.name.split(" ")[0] + " " + x.name.split(" ")[1]} ${" "}
+                    <strong>{x.price}</strong>
+                  </p>
+                </ListGroup.Item>
+              ))}
             </ListGroup.Item>
             <ListGroup.Item>
               <Button
