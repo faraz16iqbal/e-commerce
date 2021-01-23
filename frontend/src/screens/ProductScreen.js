@@ -16,13 +16,14 @@ import Message from "../components/Message";
 import { listProductDetails } from "../actions/productActions";
 
 const ProductScreen = ({ history, match }) => {
-  const [qty, setQty] = useState(0);
+  const [qty, setQty] = useState(1);
 
   const dispatch = useDispatch();
 
   const productDetails = useSelector((state) => state.productDetails);
-  // console.log(productDetails);
+
   const { loading, product, error } = productDetails;
+
   useEffect(() => {
     dispatch(listProductDetails(match.params.id));
     // eslint-disable-next-line react-hooks/exhaustive-deps
