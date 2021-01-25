@@ -21,6 +21,7 @@ const LoginScreen = ({ history, location }) => {
   useEffect(() => {
     if (userInfo) {
       history.push(redirect);
+      console.log(redirect);
     }
   }, [history, userInfo, redirect]);
 
