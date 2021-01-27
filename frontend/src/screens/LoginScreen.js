@@ -24,6 +24,7 @@ const LoginScreen = ({ location, history }) => {
       history.push(redirect);
       // console.log(redirect);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [history, userInfo, redirect]);
 
   const submitHandler = (e) => {

@@ -26,7 +26,7 @@ const protect = asyncHandler(async (req, res, next) => {
     throw new Error("Unauthorized");
   }
 
-  console.log(token);
+  // console.log(token);
 });
 
 export { protect };
