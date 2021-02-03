@@ -36,6 +36,9 @@ const CartScreen = ({ match, location, history }) => {
     dispatch(removeFromCart(id));
     history.push(`/cart`);
   };
+
+  //Redirecting important
+
   const checkoutHandler = () => {
     history.push(`/login?redirect=shipping`);
   };
