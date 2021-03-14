@@ -15,6 +15,8 @@ const ProductListScreen = ({ history, match }) => {
   const productDelete = useSelector((state) => state.productDelete);
   const {
     loading: loadingDelete,
+
+    // eslint-disable-next-line no-unused-vars
     error: errorDelete,
     success: successDelete,
   } = productDelete;
