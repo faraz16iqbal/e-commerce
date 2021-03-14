@@ -8,8 +8,8 @@
     "server": "nodemon --exec babel-node backend/server",
     "client": "npm start --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "data:import": "node backend/seeder",
-    "data:destroy": "node backend/seeder -d"
+    "data:import": "babel-node backend/seeder",
+    "data:destroy": "babel-node backend/seeder -d"
   },
   "author": "Faraz Iqbal",
   "license": "MIT",
